@@ -1,0 +1,30 @@
+{
+  "name": "toady-acrophobia",
+  "version": "0.1.0",
+  "description": "A game to turn acronyms into funny phrases",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomFrost/toady-acrophobia"
+  },
+  "keywords": [
+    "toady",
+    "game",
+    "acro",
+    "acrophobia",
+    "acronym",
+    "backronym"
+  ],
+  "author": "Tom Frost <tom@frosteddesign.com>",
+  "license": "BSD",
+  "dependencies": {
+    "seq": "~0.3.5"
+  },
+  "devDependencies": {
+    "mocha": "~1.11.0",
+    "should": "~1.2.2"
+  }
+}
