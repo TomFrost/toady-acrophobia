@@ -73,5 +73,9 @@ The values given below are the defaults.
       # The number of seconds to wait between face-off rounds
       secsBetweenFaceOffRounds: 2
 
+Using the new Config module added to Toady 0.3.0, some config options can now
+be changed on the fly.  Owners and SuperUsers can now type
+`!viewmod acrophobia` to see a listing of these options.
+
 ##Credits
 Acrophobia for Toady was written by Tom Frost in 2013.

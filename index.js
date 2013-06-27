@@ -266,6 +266,45 @@ specified, I'll stop the game running in the current channel."
 				targetChannel: true
 			}
 		},
+		configItems: {
+			minLetters: {
+				desc: "The minimum number of letters per acro",
+				type: 'number',
+				validate: function(val) {
+					if (val < 2 || val > 12)
+						return new Error("Value must be between 2 and 12.");
+					if (config.maxLetters < val) {
+						return new Error(
+							"Value cannot be greater than maxLetters.");
+					}
+					return true;
+				}
+			},
+			maxLetters: {
+				desc: "The maximum number of letters per acro",
+				type: 'number',
+				validate: function(val) {
+					if (val < 4 || val > 24)
+						return new Error("Value must be between 4 and 24.");
+					if (config.minLetters > val) {
+						return new Error(
+							"Value cannot be less than minLetters.");
+					}
+					return true;
+				}
+			},
+			pointCap: {
+				desc: "Number of points to be reached before entering face-off",
+				type: 'number',
+				validate: function(val) {
+					if (val < 1)
+						return new Error("Value must be a positive number.");
+					if (val > 500)
+						return new Error("Value cannot exceed 500.");
+					return true;
+				}
+			}
+		},
 		unload: function() {
 			stopAll();
 			client.removeListener('nick', nickHandler);
@@ -293,3 +332,5 @@ module.exports.configDefaults = {
 	secsPerFaceOffRound: 30,
 	secsBetweenFaceOffRounds: 2
 };
+
+module.exports.minToadyVersion = '0.3.0';
