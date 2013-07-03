@@ -7,6 +7,8 @@
 var AcroGame = require('./lib/AcroGame'),
 	oUtil = require('./lib/util/Object');
 
+const START_DELAY = 15;
+
 /**
  * Allows games of Acrophobia to be played!  See the acrohelp command for
  * an explanation of gameplay.
@@ -106,12 +108,14 @@ is running.",
 			games[channel].on('end', function() {
 				delete games[channel];
 			});
-			client.notice(channel, "Welcome to Acrophobia! Say !acrohelp for \
-instructions. To make life easier, copy this to your clipboard: [" +
+			client.notice(channel, "Acrophobia starts in " + START_DELAY +
+				" seconds! /msg " + client.nick +
+				" acrohelp for instructions.");
+			client.notice(channel, "Copy this to your clipboard: [" +
 				inputPrefix + "].");
 			setTimeout(function() {
 				games[channel].start();
-			}, config.secsBetweenRounds * 1000);
+			}, START_DELAY * 1000);
 		}
 	}
 
